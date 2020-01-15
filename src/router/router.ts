@@ -1,9 +1,9 @@
-import { Router, Request, Response } from 'express';
-
+import { Router, Request, Response } from 'express';
+import path = require('path');
 const router = Router();
 
-router.get('/',(req : Request, res: Response)=>{
-  res.send('Hola mundo');
+router.get('/', (request: Request, response: Response) => {
+	return response.sendFile(path.join(__dirname, '..', '..', 'www', 'index.html'));
 });
 
 export default router;

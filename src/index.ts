@@ -1,8 +1,18 @@
 import Server from './server/server';
 import router from './router/router';
+import http = require('http');
+import socketIO = require('socket.io');
+import express = require('express');
+import path = require('path');
 
-const server = Server.init(8080);
+const expressServer = Server.init(8080);
+const server = http.createServer(expressServer.app);
+const io = socketIO.listen(server);
 
-server.app.use(router);
+expressServer.app.use(router);
 
-server.start(()=> console.log("Server started"));
+io.on('connection', (socket: SocketIO.Socket) => {
+	console.log('new connection');
+});
+
+server.listen(8080);

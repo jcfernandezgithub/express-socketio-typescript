@@ -10,10 +10,16 @@ const server = http.createServer(expressServer.app);
 const io = socketIO.listen(server);
 
 expressServer.app.use(router);
-expressServer.app.use(express.static(path.join(__dirname, 'www', 'js', 'chat.js')));
+expressServer.app.use(express.static(path.join(__dirname, 'www')));
 
 io.on('connection', (socket: SocketIO.Socket) => {
 	console.log('new connection');
+
+	socket.on('message', (message: string) => {
+		console.log(message);
+		io.emit('messageFromServer', { message });
+	});
+
 });
 
 server.listen(8080);

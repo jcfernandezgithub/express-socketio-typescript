@@ -10,6 +10,7 @@ const server = http.createServer(expressServer.app);
 const io = socketIO.listen(server);
 
 expressServer.app.use(router);
+expressServer.app.use(express.static(path.join(__dirname, 'www', 'js', 'chat.js')));
 
 io.on('connection', (socket: SocketIO.Socket) => {
 	console.log('new connection');

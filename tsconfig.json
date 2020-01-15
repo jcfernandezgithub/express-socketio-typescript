@@ -1,20 +1,19 @@
 {
-    "compilerOptions": {
-        "target": "es6",
-        "module": "commonjs",
-        "removeComments": true,
-        "outDir": "dist",
-        "noImplicitAny": true,
-        "sourceMap": true,
-        "watch": true,
-        "rootDir": "src",
-        "experimentalDecorators": true
-    },
-    "include": [
-        "src/**/*"
-    ],
-    "exclude": [
-        "node_modules"
-    ]
-
+	"compilerOptions": {
+		"target": "es6",
+		"module": "commonjs",
+		"removeComments": true,
+		"outDir": "dist",
+		"noImplicitAny": true,
+		"sourceMap": false,
+		"watch": true,
+		"rootDir": "src",
+		"experimentalDecorators": true
+	},
+	"include": [
+		"src/**/*"
+	],
+	"exclude": [
+		"node_modules"
+	]
 }
